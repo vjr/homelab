@@ -1,3 +1,3 @@
-#hardware
+# hardware
 
 Hardware specific customisations.
