@@ -55,12 +55,11 @@ outPath=/opt/UbuntuMirror/ubuntu-mirror
 # Start script
 #
 debmirror       -a $arch \
-                --no-source \
+                --source \
                 -s $section \
                 -h $server \
                 -d $release \
                 -r $inPath \
-                --progress \
                 --method=$proto \
                 $outPath
 
