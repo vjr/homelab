@@ -8,13 +8,23 @@ Silent boot and shutdown:
   
 - Add `setterm -cursor on` to `/etc/profile`.
   
-- In `/lib/systemd/system/getty@tty1.service.d/hide-prompt.conf` add the following:
+- In
+  ```
+  /lib/systemd/system/getty@tty1.service.d/hide-prompt.conf
+  ```
+  add the following:
   
-  ```[Service]
+  ```
+  [Service]
   ExecStart=
-  ExecStart=-/usr/bin/agetty --skip-login --nonewline --noissue --noclear %I $TERM```
+  ExecStart=-/usr/bin/agetty --skip-login --nonewline --noissue --noclear %I $TERM
+  ```
   
-- In `/usr/lib/systemd/system/hide-shutdown.service` add the following:
+- In
+  ```
+  /usr/lib/systemd/system/hide-shutdown.service
+  ```
+  add the following:
   
   ```
   [Unit]
@@ -24,7 +34,8 @@ Silent boot and shutdown:
   ExecStart=chvt 1
 
   [Install]
-  WantedBy=shutdown.target```
+  WantedBy=shutdown.target
+  ```
 
 - Run `sudo systemctl daemon-reload` and `sudo systemctl enable hide-shutdown.service`
 
